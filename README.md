@@ -23,7 +23,7 @@ The queries for Censys and Shodan are in the code in the respective function and
 ## What do I track?
 
 - C2's
-    - TBD
+    - Covenant
 - Malware
     - Vidar Stealer
 - Tools

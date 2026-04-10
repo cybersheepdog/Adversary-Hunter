@@ -1,7 +1,7 @@
 # Adversary Hunter
 [![Build Status](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-blue.svg)](https://shields.io)
 ![Maintenance](https://img.shields.io/maintenance/yes/2026.svg?style=flat-square)
-[![Github last commit](https://img.shields.io/github/last-commit/cybersheepdog/Adversary-Hunterer.svg?style=flat-square)]
+[![Github last commit](https://img.shields.io/github/last-commit/cybersheepdog/Adversary-Hunter.svg?style=flat-square)]
 
 Adversary Hunter is a free-to-use-community-driven IOC feed that uses [Shodan](https://www.shodan.io/) and [Censys](https://search.censys.io/) searches to collect IP addresses of known malware/botnet/C2 infrastructure.
 

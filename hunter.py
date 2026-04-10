@@ -11,11 +11,10 @@ def shodan():
     api_key = os.environ["SHODAN_API_KEY"].strip()
     api = Shodan(api_key)
     queries = {
-        "Cobalt Strike C2": [
-            "ssl.cert.serial:146473198",
-            "hash:-2007783223 port:50050",
-            "product:'Cobalt Strike Beacon'",
-            "ssl:foren.zik"
+            "Covenant C2": [
+                "ssl:Covenant http.component:Blazor",
+                "http.favicon.hash:-737603591",
+                "product:Covenant"
         ]
     }
 
@@ -32,7 +31,7 @@ def shodan():
     # TODO: Check for duplicate queries to avoid unncessary api calls.
     # TODO: Check for differnt queries for the same tool and merge into one.
 
-    # https://www.techiedelight.com/delete-all-files-directory-python/
+   # https://www.techiedelight.com/delete-all-files-directory-python/
     dir_to_clean = "data"
     for file in os.scandir(dir_to_clean):
         os.remove(file.path)
@@ -124,7 +123,7 @@ def deconflict():
 def main():
     load_dotenv()
     shodan()
-    censys()
+    #censys()
     deconflict()
 
 if __name__ == '__main__':

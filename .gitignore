@@ -134,3 +134,9 @@ include/
 lib/
 lib64
 pyvenv.cfg
+
+# Custom query files
+censys_queries.json
+shodan_queries.json
+*.json
+

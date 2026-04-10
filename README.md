@@ -23,7 +23,9 @@ The queries for Censys and Shodan are in the code in the respective function and
 ## What do I track?
 
 - C2's
-    - Covenant
+    - [Brute Ratel](https://bruteratel.com)
+    - [Cobalt Strike](https://cobaltstrike.com)
+    - [Covenant](https://github.com/cobbr/Covenant)
 - Malware
     - Vidar Stealer
 - Tools

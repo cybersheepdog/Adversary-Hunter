@@ -11,10 +11,17 @@ def shodan():
     api_key = os.environ["SHODAN_API_KEY"].strip()
     api = Shodan(api_key)
     queries = {
-            "Covenant C2": [
-                "ssl:Covenant http.component:Blazor",
-                "http.favicon.hash:-737603591",
-                "product:Covenant"
+        "Brute Ratel C4": [
+            "http.html_hash:-1957161625",
+            "product:'Brute Ratel C4'"
+        ],
+        "Cobalt Strike C2": [
+            "HTTP/1.1 404 Not Found Serve: Google Frontend Content-Length: 0 Keep-Alive: timeout=10, max=10 Connection:Keep-Alive Content-Type: text/plain"
+        ],
+        "Covenant C2": [
+            "ssl:Covenant http.component:Blazor",
+            "http.favicon.hash:-737603591",
+            "product:Covenant"
         ]
     }
 

@@ -26,6 +26,7 @@ The queries for Censys and Shodan are in the code in the respective function and
     - [Brute Ratel](https://bruteratel.com)
     - [Cobalt Strike](https://cobaltstrike.com)
     - [Covenant](https://github.com/cobbr/Covenant)
+    - Poseidon
 - Malware
     - Vidar Stealer
 - Tools

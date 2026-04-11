@@ -22,6 +22,15 @@ def shodan():
             "ssl:Covenant http.component:Blazor",
             "http.favicon.hash:-737603591",
             "product:Covenant"
+        ],
+        "DayBreak BAS": [
+            "http.favicon.hash:991353327"
+        ],
+        "Havoc C2": [
+            "X-Havoc: True"
+        ],
+        "Posh C2": [
+            "ssl:Pajfds ssl:P18055077"
         ]
     }
 

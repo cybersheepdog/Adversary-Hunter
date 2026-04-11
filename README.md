@@ -26,10 +26,13 @@ The queries for Censys and Shodan are in the code in the respective function and
     - [Brute Ratel](https://bruteratel.com)
     - [Cobalt Strike](https://cobaltstrike.com)
     - [Covenant](https://github.com/cobbr/Covenant)
+    - [Havoc](https://github.com/HavocFreamework/havoc)
+    - [POSH](https://github.com/nettitude/PoshC2/tree/517903431ab43e6d714b24b0752ba111f5d4c2f1)
+    - [RedWarden](https://github.com/mgeeky/RedWarden)
 - Malware
     - Vidar Stealer
 - Tools
-    - TBD 
+    - [DayBreak](https://github.com/tophant-ai/DayBreak) / [DayBreak](https://daybreak.tophant.com/home)
 - Botnets
     - TBD
 

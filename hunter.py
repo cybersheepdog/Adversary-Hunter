@@ -11,12 +11,30 @@ def shodan():
     api_key = os.environ["SHODAN_API_KEY"].strip()
     api = Shodan(api_key)
     queries = {
+        "AcidRain Stealer": [
+            'http.html:"AcidRain Stealer"'
+        ],
         "Brute Ratel C4": [
             "http.html_hash:-1957161625",
             "product:'Brute Ratel C4'"
         ],
+        "Caldera C2": [
+            'http.title:"Login | CALDERA"',
+            # https://twitter.com/ViriBack/status/1713714868564394336
+            "http.favicon.hash:-636718605",
+            "http.html_hash:-1702274888"
+        ],
         "Cobalt Strike C2": [
-            "HTTP/1.1 404 Not Found Serve: Google Frontend Content-Length: 0 Keep-Alive: timeout=10, max=10 Connection:Keep-Alive Content-Type: text/plain"
+            "HTTP/1.1 404 Not Found Serve: Google Frontend Content-Length: 0 Keep-Alive: timeout=10, max=10 Connection:Keep-Alive Content-Type: text/plain",
+            "ssl.cert.serial:146473198",
+            "hash:-2007783223 port:50050",
+            "product:'Cobalt Strike Beacon'"
+            "ssl:foren.zik"
+        ],
+        "Collector Stealer": [
+            'http.html:"Collector Stealer"',
+            'http.html:getmineteam',
+            'product:"Collector Stealer"'
         ],
         "Covenant C2": [
             "ssl:Covenant http.component:Blazor",
@@ -26,11 +44,68 @@ def shodan():
         "DayBreak BAS": [
             "http.favicon.hash:991353327"
         ],
+        "Deimos C2": [
+            "http.html_hash:-14029177",
+            "product:'Deimos C2'"
+        ],
+        "GoPhish": [
+            "http.title:'Gophish - Login'",
+        ],
         "Havoc C2": [
-            "X-Havoc: True"
+            "X-Havoc: True",
+            "product:Havoc"
+        ],
+        # https://twitter.com/g0njxa/status/1717563999984717991?t=rcVyVA2zwgJtHN5jz4wy7A&s=19
+        "Meduza Stealer": [
+            "http.html_hash:1368396833",
+            "http.title:'Meduza Stealer'"
+        ],
+        "Misha Stealer": [
+            "http.title:misha http.component:UIKit"
+        ],
+        "Mystic Stealer": [
+            "http.title:'Mystic Stealer'",
+            "http.favicon.hash:-442056565"
+        ],
+        "Mythic C2": [
+            "ssl:Mythic port:7443",
+            "http.favicon.hash:-859291042",
+            "product:Mythic"
+        ],
+        "NimPlant C2" : [
+            "http.html_hash:-1258014549"
+        ],
+        "PANDA C2":  [
+            "http.html:PANDA http.html:layui",
+            "product:'Panda C2'"
+        ],
+        "Patriot Stealer": [
+            "http.favicon.hash:274603478",
+            "http.html:patriotstealer"
         ],
         "Posh C2": [
-            "ssl:Pajfds ssl:P18055077"
+            "ssl:Pajfds ssl:P18055077",
+            "product:PoshC2",
+            # https://x.com/pedrinazziM/status/1808629285726400879
+            "http.html_hash:855112502",
+            "http.html_hash:-1700067737"
+        ],
+        "RAXNET Bitcoin Stealer": [
+            "http.favicon.hash:-1236243965"
+        ],
+        "Sliver C2": [
+            "ssl:multiplayer ssl.cert.issuer.cn:operators",
+            '"HTTP/1.1 404 Not Found" "Cache-Control: no-store, no-cache, must-revalidate" "Content-Length: 0" -"Server:" -"Pragma:"',
+            # https://twitter.com/Glacius_/status/1731699013873799209
+            "product:'Sliver C2'"
+        ],
+        "Titan Stealer": [
+            "http.html:'Titan Stealer'"
+        ],
+        "XMRig Monero Cryptominer": [
+            "http.html:XMRig",
+            "http.favicon.hash:-782317534",
+            "http.favicon.hash:1088998712"
         ]
     }
 

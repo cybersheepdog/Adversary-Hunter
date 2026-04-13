@@ -7,7 +7,7 @@ Adversary Hunter is a free-to-use-community-driven IOC feed that uses [Shodan](h
 
 ## Honorable Mentions
 
-This is based on [C2-Tracker](https://github.com/montysecurity/C2-Tracker) by [@montysecurity](https://github.com/montysecurity).
+This is based on [C2-Tracker](https://github.com/montysecurity/C2-Tracker) by [@montysecurity](https://github.com/montysecurity). C2-Tracker has been archived and is no longer being updated.  The last weekly update was April 6, 2026. I am currently going through and validating the existing signatures in there and will then update with new signatures.  Stay tuned for the weekly update cadence.
 
 ## Usage
 
@@ -24,16 +24,32 @@ The queries for Censys and Shodan are in the code in the respective function and
 
 - C2's
     - [Brute Ratel](https://bruteratel.com)
+    - [Caldera](https://caldera.mitre.org)
     - [Cobalt Strike](https://cobaltstrike.com)
     - [Covenant](https://github.com/cobbr/Covenant)
+    - [Deimos](https://github.com/DeimosC2/DeimosC2)
     - [Havoc](https://github.com/HavocFreamework/havoc)
+    - [Mythic](https://github.com/its-a-feature/Mythic)
+    - [NimPlant](https://github.com/chvancooten/NimPlant)
+    - Panda
+    - Poseidon
     - [POSH](https://github.com/nettitude/PoshC2/tree/517903431ab43e6d714b24b0752ba111f5d4c2f1)
     - [RedWarden](https://github.com/mgeeky/RedWarden)
-    - Poseidon
+    - [Sliver](https://github.com/BishopFox/sliver)
 - Malware
+    - AcidRain Stealer
+    - Collector Stealer
+    - Meduza Stealer
+    - Misha Staler (AKA Grand Misha)
+    - Mystic Stealer
+    - Patriot Stealer
+    - RAXNET Bitcoin Stealer
+    - Titan Stealer
     - Vidar Stealer
 - Tools
     - [DayBreak](https://github.com/tophant-ai/DayBreak) / [DayBreak](https://daybreak.tophant.com/home)
+    - [GoPhish](https://getgophish.com)
+    - [XMRig Monero Cryptominter](https://xmrig.com)
 - Botnets
     - TBD
 

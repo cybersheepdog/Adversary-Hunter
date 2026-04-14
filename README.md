@@ -80,7 +80,6 @@ The queries for Censys and Shodan are in the code in the respective function and
     - [Unam Web Panel](https://github.com/UnamSanctam/UnamWebPanel)/SilentCryptoMiner
     - Vidar Stealer
     - Viper RAT
-    - XtremeRAT Trojan
     - ZeroAccess Trojan
 - Tools
     - [BurpSuite](https://portswigger.net/burp)

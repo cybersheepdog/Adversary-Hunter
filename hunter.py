@@ -12,30 +12,30 @@ def shodan():
     api = Shodan(api_key)
     queries = {
         # https://gi7w0rm.medium.com/the-curious-case-of-the-7777-botnet-86e3464c3ffd
-        "7777 Botnet": [
-            "hash:1357418825"
-        ],
-        "AcidRain Stealer": [
-            'http.html:"AcidRain Stealer"'
-        ],
-        "Ares RAT C2": [
-            "product:'Ares RAT C2'"
-        ],
+        #"7777 Botnet": [
+        #    "hash:1357418825"
+        #],
+        #"AcidRain Stealer": [
+        #    'http.html:"AcidRain Stealer"'
+        #],
+        #"Ares RAT C2": [
+        #    "product:'Ares RAT C2'"
+        #],
         "AsyncRAT": [
             "product:AsyncRAT"
         ],
-        "Atlandida Stealer": [
-            "http.title:'Atlantida' http.html:'GY7HXsD.jpg'"
-        ],
-        "Bandit Stealer": [
-            "http.title:Login http.html:'Welcome to Bandit' 'Content-Length: 4125' port:8080"
-        ],
-        "BitRAT": [
-            "product:BitRAT"
-        ],
-        "BlackNet Botnet": [
-            "http.title:'BlackNet - Login'"
-        ],
+        #"Atlandida Stealer": [
+        #    "http.title:'Atlantida' http.html:'GY7HXsD.jpg'"
+        #],
+        #"Bandit Stealer": [
+        #    "http.title:Login http.html:'Welcome to Bandit' 'Content-Length: 4125' port:8080"
+        #],
+        #"BitRAT": [
+        #    "product:BitRAT"
+        #],
+        #"BlackNet Botnet": [
+        #    "http.title:'BlackNet - Login'"
+        #],
         "Brute Ratel C4": [
             "http.html_hash:-1957161625",
             "product:'Brute Ratel C4'"
@@ -46,48 +46,48 @@ def shodan():
         "Caldera C2": [
             'http.title:"Login | CALDERA"',
             # https://twitter.com/ViriBack/status/1713714868564394336
-            "http.favicon.hash:-636718605",
-            "http.html_hash:-1702274888"
+        #    "http.favicon.hash:-636718605",
+        #    "http.html_hash:-1702274888"
         ],
         "Cobalt Strike C2": [
-            "HTTP/1.1 404 Not Found Serve: Google Frontend Content-Length: 0 Keep-Alive: timeout=10, max=10 Connection:Keep-Alive Content-Type: text/plain",
+        #    "HTTP/1.1 404 Not Found Serve: Google Frontend Content-Length: 0 Keep-Alive: timeout=10, max=10 Connection:Keep-Alive Content-Type: text/plain",
             "ssl.cert.serial:146473198",
             "hash:-2007783223 port:50050",
             "product:'Cobalt Strike Beacon'"
-            "ssl:foren.zik"
+        #    "ssl:foren.zik"
         ],
-        "Collector Stealer": [
-            'http.html:"Collector Stealer"',
-            'http.html:getmineteam',
-            'product:"Collector Stealer"'
-        ],
+        #"Collector Stealer": [
+        #    'http.html:"Collector Stealer"',
+        #    'http.html:getmineteam',
+        #    'product:"Collector Stealer"'
+        #],
         "Covenant C2": [
-            "ssl:Covenant http.component:Blazor",
-            "http.favicon.hash:-737603591",
+        #    "ssl:Covenant http.component:Blazor",
+        #    "http.favicon.hash:-737603591",
             "product:Covenant"
         ],
         "DarkComet Trojan": [
             "product:'DarkComet Trojan'"
         ],
-        "DarkTrack RAT Trojan": [
-            "product:'DarkTrack RAT Trojan'"
-        ],
+        #"DarkTrack RAT Trojan": [
+        #    "product:'DarkTrack RAT Trojan'"
+        #],
         "DayBreak BAS": [
             "http.favicon.hash:991353327"
         ],
         "DcRAT": [
             "product:DcRat"
         ],
-        "Deimos C2": [
-            "http.html_hash:-14029177",
-            "product:'Deimos C2'"
-        ],
-        "Doxerina Botnet": [
-            "http.title:'Doxerina BotNet'"
-        ],
-        "Empire C2": [
-            "product:'Empire C2'"
-        ],
+        #"Deimos C2": [
+        #    "http.html_hash:-14029177",
+        #    "product:'Deimos C2'"
+        #],
+        #"Doxerina Botnet": [
+        #    "http.title:'Doxerina BotNet'"
+        #],
+        #"Empire C2": [
+        #    "product:'Empire C2'"
+        #],
         "Gh0st RAT Trojan": [
             "product:'Gh0st RAT Trojan'"
         ],
@@ -96,40 +96,40 @@ def shodan():
         ],
         "Hak5 Cloud C2": [
             "product:'Hak5 Cloud C2'",
-            "http.favicon.hash:1294130019"
+        #    "http.favicon.hash:1294130019"
         ],
-        "Hachcat": [
-            "product:'Hachcat Cracking Tool'"
-        ],
+        #"Hachcat": [
+        #    "product:'Hachcat Cracking Tool'"
+        #],
         "Havoc C2": [
             "X-Havoc: True",
-            "product:Havoc"
+        #    "product:Havoc"
         ],
         "Hookbot Trojan": [
             "http.title:'Hookbot Panel'"
         ],
         # https://twitter.com/g0njxa/status/1717563999984717991?t=rcVyVA2zwgJtHN5jz4wy7A&s=19
-        "Meduza Stealer": [
-            "http.html_hash:1368396833",
-            "http.title:'Meduza Stealer'"
-        ],
-        "Misha Stealer": [
-            "http.title:misha http.component:UIKit"
-        ],
+        #"Meduza Stealer": [
+        #    "http.html_hash:1368396833",
+        #    "http.title:'Meduza Stealer'"
+        #],
+        #"Misha Stealer": [
+        #    "http.title:misha http.component:UIKit"
+        #],
         "MobSF": [
             "http.title:'Mobile Security Framework - MobSF'"
         ],
         "Mozi Botnet": [
             "http.html_hash:-1245370368"
         ],
-        "Mystic Stealer": [
-            "http.title:'Mystic Stealer'",
-            "http.favicon.hash:-442056565"
-        ],
+        #"Mystic Stealer": [
+        #    "http.title:'Mystic Stealer'",
+        #    "http.favicon.hash:-442056565"
+        #],
         "Mythic C2": [
             "ssl:Mythic port:7443",
             "http.favicon.hash:-859291042",
-            "product:Mythic"
+        #    "product:Mythic"
         ],
         "NanoCore RAT Trojan": [
             "product:'NanoCore RAT Trojan'"
@@ -146,57 +146,57 @@ def shodan():
         "Orcus RAT Trojan": [
             "product:'Orcus RAT Trojan'"
         ],
-        "Oyster C2": [
-            "http.html_hash:-51903740"
-        ],
+        #"Oyster C2": [
+        #    "http.html_hash:-51903740"
+        #],
         "PANDA C2":  [
             "http.html:PANDA http.html:layui",
             "product:'Panda C2'"
         ],
         "Pantegana C2": [
             "ssl:Pantegana ssl:localhost",
-            "ssl.cert.issuer.cn:'Pantegana Root CA'"
+        #    "ssl.cert.issuer.cn:'Pantegana Root CA'"
         ],
-        "Patriot Stealer": [
-            "http.favicon.hash:274603478",
-            "http.html:patriotstealer"
-        ],
-        "Poison Ivy Trojan": [
-            "product:'Poison Ivy Trojan'"
-        ],
-        "Poseidon C2": [
-            "http.favicon.hash:219045137",
-            "http.html_hash:-1139460879",
-            "hash:799564296"
-        ],
+        #"Patriot Stealer": [
+        #    "http.favicon.hash:274603478",
+        #    "http.html:patriotstealer"
+        #],
+        #"Poison Ivy Trojan": [
+        #    "product:'Poison Ivy Trojan'"
+        #],
+        #"Poseidon C2": [
+        #    "http.favicon.hash:219045137",
+        #    "http.html_hash:-1139460879",
+        #    "hash:799564296"
+        #],
         "Posh C2": [
             "ssl:Pajfds ssl:P18055077",
-            "product:PoshC2",
-            # https://x.com/pedrinazziM/status/1808629285726400879
-            "http.html_hash:855112502",
-            "http.html_hash:-1700067737"
+        #    "product:PoshC2",
+        #    # https://x.com/pedrinazziM/status/1808629285726400879
+        #    "http.html_hash:855112502",
+        #    "http.html_hash:-1700067737"
         ],
-        "Prysmax Stealer": [
-            "http.title:'Prysmax Stealer'"
-        ],
+        #"Prysmax Stealer": [
+        #    "http.title:'Prysmax Stealer'"
+        #],
         "Quasar RAT": [
             "product:'Quasar RAT'"
         ],
-        "RAXNET Bitcoin Stealer": [
-            "http.favicon.hash:-1236243965"
-        ],
+        #"RAXNET Bitcoin Stealer": [
+        #    "http.favicon.hash:-1236243965"
+        #],
         "RedGuard C2": [
             "http.status:307 http:'307 Temporary Redirect Content-Type: text/html; charset=utf-8 Location: https://360.net'"
         ],
         "Remcos RAT": [
             "product:'Remcos Pro RAT Trojan'"
         ],
-        "RisePro Stealer": [
-            "'Server: RisePro'"
-        ],
-        "Scarab Botnet": [
-            "http.title:'Scarab Botnet PANEL'"
-        ],
+        #"RisePro Stealer": [
+        #    "'Server: RisePro'"
+        #],
+        #"Scarab Botnet": [
+        #    "http.title:'Scarab Botnet PANEL'"
+        #],
          "Sectop RAT": [
             "http.headers_hash:-1731927497 port:9000,15647"
         ],
@@ -204,28 +204,28 @@ def shodan():
             "product:ShadowPad"
         ],
         "Sliver C2": [
-            "ssl:multiplayer ssl.cert.issuer.cn:operators",
-            '"HTTP/1.1 404 Not Found" "Cache-Control: no-store, no-cache, must-revalidate" "Content-Length: 0" -"Server:" -"Pragma:"',
-            # https://twitter.com/Glacius_/status/1731699013873799209
+        #    "ssl:multiplayer ssl.cert.issuer.cn:operators",
+        #    '"HTTP/1.1 404 Not Found" "Cache-Control: no-store, no-cache, must-revalidate" "Content-Length: 0" -"Server:" -"Pragma:"',
+        #    # https://twitter.com/Glacius_/status/1731699013873799209
             "product:'Sliver C2'"
         ],
-        "Spectre Stealer": [
-            "http.title:'Spectre Stealer - Login'"
-        ],
-        "SpiceRAT": [
-            "http.headers_hash:1955818171 http.html_hash:114440660"
-        ],
-        "SpyAgent": [
-            "http.title:'SpY-Agent v1.2'"
-        ],
+        #"Spectre Stealer": [
+        #    "http.title:'Spectre Stealer - Login'"
+        #],
+        #"SpiceRAT": [
+        #    "http.headers_hash:1955818171 http.html_hash:114440660"
+        #],
+        #"SpyAgent": [
+        #    "http.title:'SpY-Agent v1.2'"
+        #],
         "Supershell C2": [
             "http.html_hash:84573275",
             "http.favicon.hash:-1010228102",
             "http.title:'Supershell - 登录'"
         ],
-        "Titan Stealer": [
-            "http.html:'Titan Stealer'"
-        ],
+        #"Titan Stealer": [
+        #    "http.html:'Titan Stealer'"
+        #],
         "Unam Web Panel": [
             "html:unam_lib.js http.favicon.hash:-1278680098,-1531496738",
             "http.title:'Unam Web Panel &mdash; Login'"
@@ -233,19 +233,16 @@ def shodan():
         "Villain C2": [
             "hash:856668804"
         ],
-        "Viper RATgit statu": [
-            "http.html_hash:-1250764086"
-        ],
-        "Vshell C2": [
-            "http.title:'Vshell - 登录'"
-        ],
+        #"Viper RAT": [
+        #    "http.html_hash:-1250764086"
+        #],
+        #"Vshell C2": [
+        #    "http.title:'Vshell - 登录'"
+        #],
         "XMRig Monero Cryptominer": [
             "http.html:XMRig",
             "http.favicon.hash:-782317534",
             "http.favicon.hash:1088998712"
-        ],
-        "XtremeRAT Trojan": [
-            "product:'XtremeRAT Trojan'"
         ],
         "ZeroAccess Trojan": [
             "product:'ZeroAccess Trojan'"

@@ -23,35 +23,78 @@ The queries for Censys and Shodan are in the code in the respective function and
 ## What do I track?
 
 - C2's
+    - [Ares](https://github.com/sweetsoftware/Ares)
     - [Brute Ratel](https://bruteratel.com)
     - [Caldera](https://caldera.mitre.org)
     - [Cobalt Strike](https://cobaltstrike.com)
     - [Covenant](https://github.com/cobbr/Covenant)
     - [Deimos](https://github.com/DeimosC2/DeimosC2)
+    - [Empire](https://github.com/EmpireProject/Empire)
+    - [Hak5 Cloud C2](https://shop.hak5.org/products/c2)
     - [Havoc](https://github.com/HavocFreamework/havoc)
     - [Mythic](https://github.com/its-a-feature/Mythic)
     - [NimPlant](https://github.com/chvancooten/NimPlant)
+    - Oyster
     - Panda
+    - [Pantegana](https://github.com/cassanof/pantegana)
     - Poseidon
     - [POSH](https://github.com/nettitude/PoshC2/tree/517903431ab43e6d714b24b0752ba111f5d4c2f1)
+    - [RedGuard](https://github.com/wikiZ/RedGuard/tree/main)
     - [RedWarden](https://github.com/mgeeky/RedWarden)
     - [Sliver](https://github.com/BishopFox/sliver)
+    - [Supershell](https://github.com/tdragon6/Supershell/tree/main)
+    - [Villain](https://github.com/t3l3machus/Villain)
+    - [Vshell](https://github.com/veo/vshell)
 - Malware
     - AcidRain Stealer
+    - Async Rat
+    - Atlandida Stealer
+    - Bandit Stealer
+    - BitRAT
     - Collector Stealer
+    - DarkCommet Trojan
+    - DarkTrack RAT Trojan
+    - DcRAT
+    - Gh0st RAT Trojan
+    - Hookbot Trojan
     - Meduza Stealer
     - Misha Staler (AKA Grand Misha)
     - Mystic Stealer
+    - NanoCore RAT Trojan
+    - NetBus Trojan
+    - njRAT Trojan
+    - Orcus RAT Trojan
     - Patriot Stealer
+    - Poison Ivy Trojan
+    - Pyrsmax Stealer
+    - Quasar Rat
     - RAXNET Bitcoin Stealer
+    - Remcos RAT
+    - [RisePro Stealer](https://github.com/noke6262/RisePro-Stealer)
+    - Sectop RAT
+    - ShadowPad
+    - Spectre Stealer
+    - [SpiceRAT](https://hunt.io/blog/the-secret-ingredient-unearthing-suspected-spicerat-infrastructure-via-html-response)
+    - [SpyAgent](https://www.deepinstinct.com/blog/the-russian-spyagent-a-decade-later-and-rat-tools-remain-at-risk)
     - Titan Stealer
+    - [Unam Web Panel](https://github.com/UnamSanctam/UnamWebPanel)/SilentCryptoMiner
     - Vidar Stealer
+    - Viper RAT
+    - XtremeRAT Trojan
+    - ZeroAccess Trojan
 - Tools
+    - [BurpSuite](https://portswigger.net/burp)
     - [DayBreak](https://github.com/tophant-ai/DayBreak) / [DayBreak](https://daybreak.tophant.com/home)
     - [GoPhish](https://getgophish.com)
+    - [Hashcat](https://hashcat.net/hashcat/)
+    - [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF)
     - [XMRig Monero Cryptominter](https://xmrig.com)
 - Botnets
-    - TBD
+    - [7777](https://gi7w0rm.medium.com/the-curious-caseof-the-7777-botnet-86e3464c3ffd)
+    - [BlackNET](https://github.com/suriya73/BlackNET)
+    - Doxerina
+    - Mozi
+    - Scarab
 
 ## Running Locally
 

@@ -52,6 +52,7 @@ The queries for Censys and Shodan are in the code in the respective function and
     - Bandit Stealer
     - BitRAT
     - Collector Stealer
+	- CountLoader
     - DarkCommet Trojan
     - DarkTrack RAT Trojan
     - DcRAT
@@ -76,6 +77,7 @@ The queries for Censys and Shodan are in the code in the respective function and
     - Spectre Stealer
     - [SpiceRAT](https://hunt.io/blog/the-secret-ingredient-unearthing-suspected-spicerat-infrastructure-via-html-response)
     - [SpyAgent](https://www.deepinstinct.com/blog/the-russian-spyagent-a-decade-later-and-rat-tools-remain-at-risk)
+	- StealC v2
     - Titan Stealer
     - [Unam Web Panel](https://github.com/UnamSanctam/UnamWebPanel)/SilentCryptoMiner
     - Vidar Stealer

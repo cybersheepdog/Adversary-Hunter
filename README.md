@@ -5,6 +5,9 @@
 
 Adversary Hunter is a free-to-use-community-driven IOC feed that uses [Shodan](https://www.shodan.io/) and [Censys](https://search.censys.io/) (hopefully coming soon) searches to collect IP addresses of known malware/botnet/C2 infrastructure.
 
+## Weekly Update Cadence
+I currently have the script set to run on Mondays at 1200 EST.  Once it completes the updated lists of IPs will be available for ingest.
+
 ## Honorable Mentions
 
 This is based on [C2-Tracker](https://github.com/montysecurity/C2-Tracker) by [@montysecurity](https://github.com/montysecurity). C2-Tracker has been archived and is no longer being updated.  The last weekly update was April 6, 2026. I am currently going through and validating the existing signatures in there and will then update with new signatures.  Stay tuned for the weekly update cadence.

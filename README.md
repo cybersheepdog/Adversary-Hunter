@@ -60,6 +60,7 @@ The queries for Censys and Shodan are in the code in the respective function and
     - DarkTrack RAT Trojan
     - DcRAT
     - Gh0st RAT Trojan
+    - GhostSocks
     - Hookbot Trojan
     - Meduza Stealer
     - Misha Staler (AKA Grand Misha)

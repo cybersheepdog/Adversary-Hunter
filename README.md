@@ -103,7 +103,7 @@ The queries for Censys and Shodan are in the code in the respective function and
 
 ## Running Locally
 
-If you want to host a private version, put your Shodan API key in an environment variable called `SHODAN_API_KEY`, and setup your Censys credentials in `CENSYS_API_ID` & `CENSYS_API_SECRET`
+If you want to host a private version, put your Shodan API key in an environment variable called `SHODAN_API_KEY`.
 
 ```bash
 python3 -m pip install -r requirements.txt
@@ -112,5 +112,5 @@ python3 hunter.py
 
 ## Contributing
 
-I encourage opening an issue/PR if you know of any additional Shodan/Censys searches for identifying adversary infrastructure. I will not set any hard guidelines around what can be submitted, just know, **fidelity is paramount** (high true/false positive ratio is the focus).
+I encourage opening an issue/PR if you know of any additional Shodan searches for identifying adversary infrastructure. I will not set any hard guidelines around what can be submitted, just know, **fidelity is paramount** (high true/false positive ratio is the focus).
 

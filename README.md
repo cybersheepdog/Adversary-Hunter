@@ -5,6 +5,8 @@
 
 Adversary Hunter is a free-to-use-community-driven IOC feed that uses [Shodan](https://www.shodan.io/) searches to collect IP addresses of known malware/botnet/C2 infrastructure.
 
+## I am currently evaluating additional sources to use in addition Shodan.
+
 ## Weekly Update Cadence
 I currently have the script set to run on Mondays at 1200 EST.  Once it completes the updated lists of IPs will be available for ingest.
 

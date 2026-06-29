@@ -18,7 +18,7 @@ This is based on [C2-Tracker](https://github.com/montysecurity/C2-Tracker) by [@
 
 The most recent collection will be stored in `data/`. The IPs are seperated by the name of the tool and there is an `all.txt` that contains all of the IPs. As it currently stands this feed updates `weekly` on Monday.
 
-The queries for Censys and Shodan are in the code in the respective function and you can see them there.  I am also including a feature to define custom queries in a text file that will be imported into the program and added to the pre-defined queries.  This gives intel and research teams the ability to define queries they may not want to be publically available.
+The queries for Shodan are in the code in the respective function and you can see them there.  I am also including a feature to define custom queries in a text file that will be imported into the program and added to the pre-defined queries.  This gives intel and research teams the ability to define queries they may not want to be publically available.
 
 ### Investigations/Historical Analysis
 

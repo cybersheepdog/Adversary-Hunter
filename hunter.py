@@ -1,14 +1,78 @@
 # Python Standard Library Imports
+import ipaddress
 import json
 import os
+import re
 
 # Third Party Imports
 from dotenv import load_dotenv
 from shodan import Shodan, exception
-from censys.search import CensysHosts
+
+
+def _ip_sort_key(ip):
+    # Sort IPs numerically (so 9.x sorts before 10.x); fall back to text for
+    # anything that isn't a valid address.
+    try:
+        return (0, int(ipaddress.ip_address(ip.strip())))
+    except ValueError:
+        return (1, ip.strip())
+
+
+def write_ips(filepath, ip_iterable):
+    # Write a de-duplicated, numerically sorted list of IPs. Using a context
+    # manager guarantees the data is flushed/closed before anything reads it.
+    unique_sorted = sorted(set(ip_iterable), key=_ip_sort_key)
+    with open(filepath, "w") as f:
+        for ip in unique_sorted:
+            f.write(f"{ip}\n")
+
+
+# A safe product name: no path separators, no parent-dir tricks, not blank.
+_SAFE_NAME = re.compile(r"^[^/\\]+$")
+
+
+def load_custom_queries(path):
+    """Load and validate custom queries from a JSON file.
+
+    Returns a dict of {product_name: [query, ...]} containing only the entries
+    that passed validation. Invalid entries are skipped with a warning rather
+    than aborting the whole run, and a malformed/missing file yields {}.
+    """
+    try:
+        with open(path, "r") as f:
+            raw = json.load(f)
+    except FileNotFoundError:
+        return {}  # No custom query file present; normal case.
+    except json.JSONDecodeError:
+        print(f"{path} is empty or not valid JSON; ignoring it.")
+        return {}
+
+    if not isinstance(raw, dict):
+        print(f"{path} must be a JSON object of {{\"Product\": [queries]}}; ignoring it.")
+        return {}
+
+    validated = {}
+    for product, queries in raw.items():
+        name = str(product).strip()
+        if not name or not _SAFE_NAME.match(name):
+            print(f"  Skipping custom query: invalid product name {product!r}.")
+            continue
+        # Allow a lone string as a convenience, but normalize to a list.
+        if isinstance(queries, str):
+            queries = [queries]
+        if not isinstance(queries, list) or not all(isinstance(q, str) and q.strip() for q in queries):
+            print(f"  Skipping '{name}': queries must be a string or a list of non-empty strings.")
+            continue
+        validated[name] = queries
+
+    return validated
+
 
 def shodan():
-    api_key = os.environ["SHODAN_API_KEY"].strip()
+    api_key = os.environ.get("SHODAN_API_KEY", "").strip()
+    if not api_key:
+        print("SHODAN_API_KEY is not set. Set it in your environment or a .env file and try again.")
+        return
     api = Shodan(api_key)
     queries = {
         # https://gi7w0rm.medium.com/the-curious-case-of-the-7777-botnet-86e3464c3ffd
@@ -249,112 +313,70 @@ def shodan():
         ]
     }
 
-    # Try and load custom queries from shodan_queries.json
-    try:
-        with open('shodan_queries.json', 'r') as file:
-            custom_shodan_queries = json.load(file)
-
-        # Merge the dictionaries of queries together
-        queries = queries | custom_shodan_queries
-    except:
-        print("Either the shodan_queries.json file is empty or there is an error in the format.")
+    # Load and validate any custom queries, then merge them in.
+    queries = queries | load_custom_queries("shodan_queries.json")
 
     # TODO: Check for duplicate queries to avoid unncessary api calls.
     # TODO: Check for differnt queries for the same tool and merge into one.
 
-   # https://www.techiedelight.com/delete-all-files-directory-python/
-    dir_to_clean = "data"
-    for file in os.scandir(dir_to_clean):
-        os.remove(file.path)
-
+    # Collect everything in memory FIRST, then write to disk. We do not delete
+    # the existing data/ contents until we know the run actually produced
+    # results, so a failed or empty Shodan run can never wipe the existing feed.
+    results_by_product = {}
     ip_set_from_all_products = set()
     for product in queries:
         ip_set_from_product = set()
-        product_ips_file = open(f"data/{product} IPs.txt", "a")
         for query in queries[product]:
             print(f"Product: {product}, Query: {query}")
-            results = api.search_cursor(query)
-            # Catch Shodan Query Errors and pass onto the next C2
+            # Catch Shodan/network errors per query and move on to the next one,
+            # rather than letting one bad query abort the whole run.
             # TODO: make it restart main() while keeping track of what was already documented
             try:
-                for result in results:
+                for result in api.search_cursor(query):
                     ip = str(result["ip_str"])
                     ip_set_from_product.add(ip)
                     ip_set_from_all_products.add(ip)
-            except exception.APIError:
+            except exception.APIError as err:
+                print(f"  Shodan API error for query '{query}': {err}")
                 continue
-        for ip in ip_set_from_product:
-            product_ips_file.write(f"{ip}\n")
-
-    all_ips_file = open("data/all.txt", "a")
-    for ip in ip_set_from_all_products:
-        all_ips_file.write(f"{ip}\n")
-
-def censys():
-    queries = {
-        "Poseidon C2": [
-            "host.services.endpoints.http.html_title='POSEIDON'",
-            "web.endpoints.http.html_title='POSEIDON'"
-        ]
-    }
-
-    # Try and load custom queries from censys_queries.json
-    try:
-        with open('censys_queries.json', 'r') as file:
-            custom_censys_queries = json.load(file)
-
-        # Merge the dictionaires of queries together
-        queries = queries | custom_censys_queries
-    except:
-        print("Either the censys_queries.json file is empty or there is an error in the format.")
-
-    # TODO: Check for duplicate queries to avoid unnecessary api calls.
-    # TODO: Check for different queries for the same tool and merge into one.
-
-    h = CensysHosts()
-    all_ips = set()
-    for product in queries:
-        ips = set()
-        product_ips_file = open(f"data/{product} IPs.txt", "a")
-        for search_string in queries[product]:
-            print(f"Product: {product}, Query: {search_string}")
-            query = h.search(search_string)
-            results = None
-            try:
-                results = query()
             except Exception as err:
-                print(err)
+                print(f"  Unexpected error for query '{query}': {err}")
                 continue
-            for host in results:
-                ip = str(host['ip'])
-                all_ips.add(ip)
-                ips.add(ip)
-        for ip in ips:
-            product_ips_file.write(f"{ip}\n")
-    all_ips_file = open("data/all.txt", "a")
-    for ip in all_ips:
-        all_ips_file.write(f"{ip}\n")
+        if ip_set_from_product:
+            results_by_product[product] = ip_set_from_product
+
+    # Bail out without touching disk if the run produced nothing (auth failure,
+    # exhausted query credits, API outage, etc.) so the existing feed survives.
+    if not ip_set_from_all_products:
+        print("No results collected; leaving existing data/ untouched.")
+        return
+
+    # Run succeeded: now clear out the old data and write the fresh results.
+    # https://www.techiedelight.com/delete-all-files-directory-python/
+    for file in os.scandir("data"):
+        os.remove(file.path)
+
+    # Write each product's list (sorted, so version-controlled diffs are stable).
+    for product, ip_set_from_product in results_by_product.items():
+        write_ips(f"data/{product} IPs.txt", ip_set_from_product)
+
+    write_ips("data/all.txt", ip_set_from_all_products)
 
 def deconflict():
     # Remove any duplicates from the files
     files = os.listdir("data/")
     for file in files:
         filepath = f"data/{file}"
-        f = open(filepath, "r")
-        lines = f.readlines()
-        f.close()
+        with open(filepath, "r") as f:
+            lines = [line.strip() for line in f if line.strip()]
         if len(lines) != len(set(lines)):
             print(f"Deconflicting: {filepath}")
-            os.remove(filepath)
-            f = open(filepath, "a")
-            for line in set(lines):
-                f.write(line)
-            f.close()
+            write_ips(filepath, lines)
 
 def main():
     load_dotenv()
+    os.makedirs("data", exist_ok=True)
     shodan()
-    #censys()
     deconflict()
 
 if __name__ == '__main__':

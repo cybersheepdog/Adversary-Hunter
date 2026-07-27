@@ -81,7 +81,12 @@ def shodan():
         #],
         #"AcidRain Stealer": [
         #    'http.html:"AcidRain Stealer"'
-        #],
+        
+        "Adaptix C2": [
+            "Server: AdaptixC2",
+            "http.html: 'AdpatixC2 404'",
+            "Server: AdaptixC2 Port:4321"
+        ],
         #"Ares RAT C2": [
         #    "product:'Ares RAT C2'"
         #],
@@ -243,6 +248,10 @@ def shodan():
         #"Prysmax Stealer": [
         #    "http.title:'Prysmax Stealer'"
         #],
+        "PureRat": [
+             "ssl:'PureRat Agent'",
+             "ssl:'PureCrack'"
+        ],
         "Quasar RAT": [
             "product:'Quasar RAT'"
         ],
@@ -271,7 +280,9 @@ def shodan():
         #    "ssl:multiplayer ssl.cert.issuer.cn:operators",
             '"HTTP/1.1 404 Not Found" "Cache-Control: no-store, no-cache, must-revalidate" "Content-Length: 0" -"Server:" -"Pragma:"',
         #    # https://twitter.com/Glacius_/status/1731699013873799209
-            "product:'Sliver C2'"
+            "product:'Sliver C2'",
+            "http.html:sliver-client",
+            "ssl.jarm:28d28d28d00028d00043d28d28d43d47390d982d099a542ccbc90628951062"
         ],
         #"Spectre Stealer": [
         #    "http.title:'Spectre Stealer - Login'"

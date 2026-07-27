@@ -28,7 +28,8 @@ The queries for Shodan are in the code in the respective function and you can se
 ## What do I track?
 
 - C2's
-    - [Ares](https://github.com/sweetsoftware/Ares)
+    - [Adaptix](https://github.com/Adaptix-Framework/AdaptixC2)
+	- [Ares](https://github.com/sweetsoftware/Ares)
     - [Brute Ratel](https://bruteratel.com)
     - [Caldera](https://caldera.mitre.org)
     - [Cobalt Strike](https://cobaltstrike.com)
@@ -73,6 +74,7 @@ The queries for Shodan are in the code in the respective function and you can se
     - Orcus RAT Trojan
     - Patriot Stealer
     - Poison Ivy Trojan
+	- PureRat 
     - Pyrsmax Stealer
     - Quasar Rat
     - RAXNET Bitcoin Stealer

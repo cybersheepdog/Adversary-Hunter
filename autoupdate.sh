@@ -28,7 +28,8 @@ export HOME="${HOME:-$(getent passwd "$(id -u)" | cut -d: -f6)}"
 export GIT_TERMINAL_PROMPT=0
 
 git pull || exit 1
-python3 hunter.py || exit 1
+#python3 hunter.py || exit 1
+/home/hunter/Scripts/Adversary-Hunter/bin/python3 hunter.py || exit 1
 
 git add .
 find . -size 0c -delete

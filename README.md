@@ -94,9 +94,11 @@ The queries for Shodan are in the code in the respective function and you can se
 - Tools
     - [BurpSuite](https://portswigger.net/burp)
     - [DayBreak](https://github.com/tophant-ai/DayBreak) / [DayBreak](https://daybreak.tophant.com/home)
+    - [Evilginx](https://github.com/kgretzky/evilginx2)
     - [GoPhish](https://getgophish.com)
     - [Hashcat](https://hashcat.net/hashcat/)
     - [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF)
+    - [Modlishka](https://github.com/drk1wi/Modlishka)
     - [XMRig Monero Cryptominter](https://xmrig.com)
 - Botnets
     - [7777](https://gi7w0rm.medium.com/the-curious-caseof-the-7777-botnet-86e3464c3ffd)
